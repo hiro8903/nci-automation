@@ -1,0 +1,28 @@
+# --- 秘密情報 (CRITICAL) ---
+.env
+
+# --- OS / エディタ関連 ---
+.DS_Store
+.antigravity/
+.antigravityignore
+
+# --- Python環境 / キャッシュ ---
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+
+# --- ビルド成果物 (PyInstallerなど) ---
+build/
+dist/
+*.spec
+
+# --- ローカルデータ / ログ ---
+downloads/
+fixed_downloads/
+work/
+work_journal/
+*.log
+run/
+setup/
