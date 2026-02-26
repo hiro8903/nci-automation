@@ -1,0 +1,37 @@
+name: Build Desknets Login EXE
+
+on:
+  workflow_dispatch: # 手動でいつでも実行できるボタン
+  push:
+    paths:
+      - 'common_utils/desknets/login.py' # このPythonファイルが書き換わった時だけ自動ビルドする（スマートな設定！）
+      - 'requirements.txt'
+
+jobs:
+  build:
+    name: Build exe on Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build with PyInstaller
+        run: |
+          pyinstaller --onefile common_utils/desknets/login.py
+
+      - name: Upload Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: desknets_login_exe  # 出来上がった.exeをダウンロードする時の名前
+          path: dist/login.exe
