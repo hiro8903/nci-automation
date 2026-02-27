@@ -13,28 +13,31 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.common.action_chains import ActionChains
 
-# 'desknets' ディレクトリを sys.path に追加し、モジュールをインポートできるようにします
-current_script_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.join(current_script_dir, os.pardir)
-# automation_tools のルートディレクトリを sys.path に追加する
-# auth_code_fetcher.py (common/) -> src/ -> a_company_downloader/ -> report_downloaders/ -> apps/ -> automation_tools/
-automation_tools_root = os.path.abspath(os.path.join(
-    os.path.dirname(__file__),  # current_script_dir (common)
-    os.pardir,                  # src
-    os.pardir,                  # daikin_downloader
-    os.pardir,                  # report_downloaders
-    os.pardir,                  # apps
-    os.pardir                   # automation_tools
-))
-desknets_module_path = os.path.join(automation_tools_root, 'common_utils', 'desknets')
+# プロジェクトのルートディレクトリを特定し、sys.path に追加します
+if getattr(sys, 'frozen', False):
+    # PyInstaller実行環境 (EXE内)
+    project_root = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(sys.argv[0])))
+else:
+    # 通常実行環境
+    # auth_code_fetcher.py (common/) -> src/ -> daikin_downloader/ -> report_downloaders/ -> apps/ -> automation_tools/
+    current_script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.normpath(os.path.join(current_script_dir, *([os.pardir] * 5)))
 
+# プロジェクトルート自体を追加
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# common_utils/desknets を追加 (既存のインポート形式を維持するため)
+desknets_module_path = os.path.join(project_root, 'common_utils', 'desknets')
 if desknets_module_path not in sys.path:
     sys.path.append(desknets_module_path)
-    # print(f"Added '{desknets_module_path}' to sys.path for module import.") # 必要なければコメントアウトまたは削除
 
 # navigate_webmail_and_update から navigate_to_webmail_and_update 関数をインポート
-# この関数は内部でWebDriverを初期化し、認証コード取得用のウェブメール画面を開く責任を持つ
-from navigate_webmail_and_update import navigate_to_webmail_and_update
+# プロジェクトルートが登録されているため、絶対パス形式でも相対形式でも解決可能です
+try:
+    from navigate_webmail_and_update import navigate_to_webmail_and_update
+except ImportError:
+    from common_utils.desknets.navigate_webmail_and_update import navigate_to_webmail_and_update
 
 # .env ファイルをロード
 load_dotenv()
