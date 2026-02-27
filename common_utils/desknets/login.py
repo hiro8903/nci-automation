@@ -175,4 +175,9 @@ if __name__ == "__main__":
         test_driver.quit()
         logger.info("ブラウザを閉じました。")
     else:
-        logger.error("ログインテスト失敗。")
+        logger.error("ログインテストに失敗しました。")
+        print("\n" + "="*50)
+        print("【原因を確認してください】")
+        print("上に表示されている赤い 'ERROR' の内容を確認してください。")
+        print("="*50)
+        input("\nEnterキーを押すとウィンドウを閉じます...")
