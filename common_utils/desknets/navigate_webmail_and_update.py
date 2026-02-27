@@ -10,8 +10,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 
 # login.py から login_and_get_driver 関数をインポート
-# 同じ desknets パッケージ内のモジュールなので相対インポートを使用
-from login import login_and_get_driver
+# プロジェクト内の絶対インポート形式を使用して、実行ファイル環境での安定性を高めます
+from common_utils.desknets.login import login_and_get_driver
 
 def navigate_to_webmail_and_update():
     """
