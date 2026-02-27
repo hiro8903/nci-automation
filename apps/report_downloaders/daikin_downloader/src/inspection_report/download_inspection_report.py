@@ -5,13 +5,13 @@
 1.  Selenium WebDriverを使用して、指定されたダウンロードページにアクセスします。
 2.  ユーザーIDとパスワードを用いてログイン認証を行います。
 3.  メールアドレスを入力して認証コードを要求し、
-    別途 `automation_tools.apps.report_downloaders.daikin_downloader.src.common.auth_code_fetcher` を呼び出してメールから認証コードを取得します。
+    別途 `apps.report_downloaders.daikin_downloader.src.common.auth_code_fetcher` を呼び出してメールから認証コードを取得します。
 4.  取得した認証コードを入力し、本サイトへのログインを完了します。
     認証失敗時にはリトライ処理を行います。
 5.  ログイン後、レポートダウンロードページで「全てチェック」のチェックボックスをクリックし、
     「一括ダウンロード」ボタンをクリックして、ZIP形式で検査レポートをダウンロードします。
 6.  ダウンロード完了後、同じディレクトリ内にダウンロードされたZIPファイルを検出し、
-    `automation_tools.common_utils.file_processing.unzip_files` スクリプトを呼び出して、ZIPファイルを解凍し、
+    `common_utils.file_processing.unzip_files` スクリプトを呼び出して、ZIPファイルを解凍し、
     内部の全てのファイルを抽出した後に元のZIPファイルを削除します。
 
 前提条件:
@@ -59,10 +59,10 @@ if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     # 配置されることを想定しています。
     # 例: C:\App\dist\download_inspection_report.exe が C:\App\.env を参照
     
-    # 実行可能ファイルがあるディレクトリのパスを取得 (例: C:\App\dist\)
+    # 実行可能ファイルがあるディレクトリのパスを取得 (例: C:\App\dist/)
     executable_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
     
-    # そのディレクトリの親ディレクトリのパスを取得 (例: C:\App\)
+    # そのディレクトリの親ディレクトリのパスを取得 (例: C:\App/)
     parent_dir = os.path.abspath(os.path.join(executable_dir, os.pardir))
     
     # 親ディレクトリにある .env ファイルの完全なパスを構築
@@ -431,13 +431,8 @@ def daikin_download_inspection_report():
         logger.error(f"\n!!! グローバルエラーが発生しました: {e} !!!")
         logger.error("プログラムの実行中に予期せぬ問題が発生しました。エラーメッセージを確認してください。")
         if driver:
-            # エラー発生時のデバッグ情報（スクリーンショットは任意で実装）
-            # screenshot_path = os.path.join(os.getcwd(), f"error_screenshot_{time.time()}.png")
-            # driver.save_screenshot(screenshot_path)
-            # logger.error(f"エラー発生時のスクリーンショットを保存しました: {screenshot_path}")
             logger.error(f"エラー発生時のURL: {driver.current_url}")
             logger.error(f"エラー発生時のページのタイトル: {driver.title}")
-            logger.debug(f"エラー発生時のHTMLソースの冒頭: \n{driver.page_source[:2000]}...")
     finally:
         # プログラム終了前にWebDriverを確実にクリーンアップ
         if driver:
@@ -449,4 +444,13 @@ def daikin_download_inspection_report():
 
 # スクリプトが直接実行された場合の処理
 if __name__ == "__main__":
-    daikin_download_inspection_report()
+    try:
+        daikin_download_inspection_report()
+    except Exception as e:
+        import traceback
+        print("\n" + "="*50)
+        print("致命的なエラーが発生しました。")
+        print("="*50)
+        traceback.print_exc()
+        print("="*50)
+        input("\nエラー内容を確認し、Enterキーを押して閉じてください...")
