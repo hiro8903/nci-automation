@@ -30,10 +30,10 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller --onefile --hidden-import="selenium.webdriver.chrome.service" --hidden-import="selenium.webdriver.chrome.webdriver" --name download_inspection_report apps/report_downloaders/daikin_downloader/src/inspection_report/download_inspection_report.py
+          pyinstaller --onefile --hidden-import="selenium.webdriver.chrome.service" --hidden-import="selenium.webdriver.chrome.webdriver" --name Daikin_Inspection_Report_Downloader apps/report_downloaders/daikin_downloader/src/inspection_report/download_inspection_report.py
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4
         with:
-          name: daikin_downloader_exe
-          path: dist/download_inspection_report.exe
+          name: Daikin_Inspection_Report_Downloader_exe
+          path: dist/Daikin_Inspection_Report_Downloader.exe
