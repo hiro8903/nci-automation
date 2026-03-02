@@ -1,10 +1,14 @@
 # --- 秘密情報 (CRITICAL) ---
 .env
 
-# --- OS / エディタ関連 ---
-.DS_Store
+# --- AI / Agent Settings (Private) ---
+GEMINI.md
+.agent/
 .antigravity/
 .antigravityignore
+
+# --- OS / エディタ関連 ---
+.DS_Store
 
 # --- Python環境 / キャッシュ ---
 .venv/
@@ -18,11 +22,12 @@ build/
 dist/
 *.spec
 
-# --- ローカルデータ / ログ ---
+# --- ローカルデータ / ログ / 一時ファイル ---
 downloads/
 fixed_downloads/
 work/
 work_journal/
 *.log
+*.png
 run/
 setup/
