@@ -74,6 +74,9 @@ DAIKIN_INSPECTION_SAVE_PATH="C:/downloads/inspection"
 
 ## 🏗 プロジェクト構成と指針 (Architecture)
 
-- **[GEMINI.md](./GEMINI.md)**: AIアシスタントのための動作指針。
-- **[DEVELOPMENT.md](./DEVELOPMENT.md)**: 開発・運用の標準化プロセス。
-- **[SPECIFICATION.md (Index)](./SPECIFICATION.md)**: プロジェクト全体の仕様目録。
+- **[GEMINI.md (協業・実装指針)](./GEMINI.md)**
+    - AIを「バーチャル・チームメンバー」として迎えるための協業指針と、実務レベルの実装規律。
+- **[DEVELOPMENT.md (開発プロセス)](./DEVELOPMENT.md)**
+    - チーム開発を想定した標準開発フロー（SDLC）に加え、Git運用や品質管理の「思考の点検リスト」を定義。
+- **[SPECIFICATION.md (Index)](./SPECIFICATION.md)**
+    - プロジェクト全体の仕様目録（Master Index）。
