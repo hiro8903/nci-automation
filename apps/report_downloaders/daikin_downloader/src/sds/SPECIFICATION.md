@@ -18,7 +18,7 @@
 #### 1-B. 要件策定 (Requirement Specification)
 - **入力**: 
     - `DAIKIN_SDS_TARGET_URL`: SDS一覧ページのURL
-    - `DAIKIN_SDS_BASE_URL`: 相対パスを解決するためのベースドメイン (例: `https://www.daikinchemicals.com`)
+    - `DAIKIN_SDS_BASE_URL`: 相対パスを解決するためのベースドメイン (例: `https://www.example.com`)
     - `DAIKIN_SDS_MODEL_LIST`: 型番リスト（カンマ区切り）
     - `DAIKIN_SDS_SAVE_ROOT_DIR`: 保存先フォルダのルート
 - **出力**: 
@@ -52,10 +52,10 @@
 ### 1. セットアップ
 プロジェクトルートにある `.env` ファイルに、以下の項目を設定してください。
 ```text
-DAIKIN_SDS_TARGET_URL="https://www.daikinchemicals.com/jp/downloads/safety-data-sheets.html"
-DAIKIN_SDS_BASE_URL="https://www.daikinchemicals.com"
-DAIKIN_SDS_MODEL_LIST="F-104,D-210C"
-DAIKIN_SDS_SAVE_ROOT_DIR="/Users/dev/Desktop"
+DAIKIN_SDS_TARGET_URL="https://www.example.com/sds.html"
+DAIKIN_SDS_BASE_URL="https://www.example.com"
+DAIKIN_SDS_MODEL_LIST="品番A,品番B"
+DAIKIN_SDS_SAVE_ROOT_DIR="C:/path/to/save"
 ```
 
 ### 2. 実行
