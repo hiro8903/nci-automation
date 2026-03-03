@@ -106,7 +106,7 @@
 
 ### 5-B. デプロイメント
 - [ ] **最新状態の同期 (Pull before PR)**: PR作成前に、`main` の最新変更を自分のブランチに取り込み、衝突がないか確認したか？
-- [ ] **Pull Request の作成**: 作業ブランチをリモートへ `git push` し、GitHub 上で Pull Request を作成したか？
+- [ ] **Pull Request の作成**: GitHub 上で **`.github/pull_request_template.md`** に従い、背景や意思決定を含めて Pull Request を作成したか？
 - [ ] **マージの実行**: レビュー（または自己確認）完了後、`main` ブランチへ安全にマージしたか？
 - [ ] **配信の実行**: 1-C の戦略に基づき、適切な場所（Releases、本番環境、ライブラリ公開等）へ反映したか？
 
