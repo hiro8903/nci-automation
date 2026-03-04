@@ -50,8 +50,10 @@
 ## ② 利用手順 (Usage)
 
 ### 1. セットアップ
-プロジェクトルートにある `.env` ファイルに、以下の項目を設定してください。
+プロジェクトルートにある `.env` ファイルに、以下の項目を設定してください。共通設定（URL/ID等）も、ツールから参照できるよう設定が必要です。
+
 ```text
+# --- SDSダウンロード専用設定 ---
 DAIKIN_SDS_TARGET_URL="https://www.example.com/library/sds/"
 DAIKIN_SDS_BASE_URL="https://www.example.com"
 DAIKIN_SDS_MODEL_LIST="MODEL-A,MODEL-B"
