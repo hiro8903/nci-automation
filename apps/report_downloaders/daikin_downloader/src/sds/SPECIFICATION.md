@@ -56,8 +56,14 @@
 # --- SDSダウンロード専用設定 ---
 DAIKIN_SDS_TARGET_URL="https://www.example.com/library/sds/"
 DAIKIN_SDS_BASE_URL="https://www.example.com"
-DAIKIN_SDS_MODEL_LIST="MODEL-A,MODEL-B"
 DAIKIN_SDS_SAVE_ROOT_DIR=C:/path/to/save
+
+# 品番リスト（改行やカンマ、インデントで整理して記述可能です）
+DAIKIN_SDS_MODEL_LIST="
+    MODEL-A,
+    MODEL-B,
+    MODEL-C
+"
 ```
 
 ### 2. 実行

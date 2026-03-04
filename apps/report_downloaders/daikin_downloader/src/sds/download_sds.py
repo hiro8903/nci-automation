@@ -73,7 +73,8 @@ def setup_environment() -> Optional[dict]:
         "base_url": os.getenv("DAIKIN_SDS_BASE_URL", ""),
         "model_list": [
             m.strip()
-            for m in os.getenv("DAIKIN_SDS_MODEL_LIST", "").split(",")
+            # カンマだけでなく改行や空白も区切り文字として扱えるように正規表現で分割
+            for m in re.split(r'[,\s]+', os.getenv("DAIKIN_SDS_MODEL_LIST", ""))
             if m.strip()
         ],
         "save_root": os.getenv("DAIKIN_SDS_SAVE_ROOT_DIR", ""),
