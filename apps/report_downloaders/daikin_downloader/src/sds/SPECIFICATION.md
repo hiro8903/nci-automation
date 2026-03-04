@@ -4,7 +4,7 @@
 
 ---
 
-## 🛠 新機能：型番別PDF自動巡回取得ツール（仮称）
+## 🛠 Daikin SDS Downloader (SDS自動取得ツール)
 
 ### 概要
 特定のWebページから、指定された型番（品番）に対応するPDFドキュメントを自動で巡回・保存するツール。取得日ごとのスナップショット管理を目的とする。
@@ -52,9 +52,9 @@
 ### 1. セットアップ
 プロジェクトルートにある `.env` ファイルに、以下の項目を設定してください。
 ```text
-DAIKIN_SDS_TARGET_URL="https://www.example.com/sds.html"
+DAIKIN_SDS_TARGET_URL="https://www.example.com/library/sds/"
 DAIKIN_SDS_BASE_URL="https://www.example.com"
-DAIKIN_SDS_MODEL_LIST="品番A,品番B"
+DAIKIN_SDS_MODEL_LIST="MODEL-A,MODEL-B"
 DAIKIN_SDS_SAVE_ROOT_DIR="C:/path/to/save"
 ```
 
