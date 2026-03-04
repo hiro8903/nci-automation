@@ -8,9 +8,9 @@
     - [詳細仕様はこちら](./apps/report_downloaders/daikin_downloader/src/inspection_report/SPECIFICATION.md)
     - 概要：検査成績書（ZIP）をダウンロードし、自動解凍・整理を行う。
 
-- **Daikin SDS Downloader (SDS自動取得ツール)**
+- **Daikin SDS Downloader Group (SDS取得ツール群)**
     - [詳細仕様はこちら](./apps/report_downloaders/daikin_downloader/src/sds/SPECIFICATION.md)
-    - 概要：ダイキン公式サイトから最新のSDS（PDF）を、ウェブサイト上の更新日付を解析して自動取得する。
+    - 概要：ダイキン公式サイトから最新のSDS（PDF）を取得する「Downloader」と、対象品番を調査する「Model Extractor」のセット。
 
 ---
 
