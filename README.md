@@ -23,21 +23,27 @@ pip install -r requirements.txt
 #### 📋 .env 用コピペ・テンプレート
 ```text
 # --- デスクネッツ認証共通 (desknets) ---
-DESKNETS_LOGIN_URL="https://..."
+DESKNETS_LOGIN_URL="https://www.example.com/login"
 DESKNETS_ORG_ID="1234"
 DESKNETS_NAME_VALUE="1234"
 DESKNETS_PASSWORD="password"
 
 # --- 検査成績書設定 (daikin_inspection_report) ---
-DAIKIN_INSPECTION_LOGIN_URL="https://..."
+DAIKIN_INSPECTION_LOGIN_URL="https://www.example.com/login"
 DAIKIN_INSPECTION_SAVE_PATH="C:/downloads/inspection"
+
+# --- SDS設定 (daikin_sds_downloader) ---
+DAIKIN_SDS_TARGET_URL="https://www.example.com/library/sds/"
+DAIKIN_SDS_BASE_URL="https://www.example.com"
+DAIKIN_SDS_MODEL_LIST="MODEL-A,MODEL-B"
+DAIKIN_SDS_SAVE_ROOT_DIR="C:/downloads/sds"
 ```
 
 ### 3. 実行方法
 各ツールの実行ファイル（EXE）またはスクリプトを起動します。
 
 - **EXE実行時の注意**: 「Windows によって PC が保護されました」という青い画面が出た場合は、[詳細情報] をクリックしてから [実行] を押してください。
-- **必須要件**: PC に **Google Chrome** ブラウザがインストールされている必要があります。
+- **必須要件**: 一部のツール（検査成績書など）は、PC に **Google Chrome** ブラウザがインストールされている必要があります。**SDSダウンローダーはブラウザ不要（軽量動作）です。**
 - **エラー時の挙動**: `GEMINI.md` の規定により、実行中にエラーが発生してもウィンドウは即座に閉じず、内容を表示したまま待機します。
 
 ### 4. 配布・運用時のフォルダ構成 (EXE)
@@ -48,7 +54,8 @@ DAIKIN_INSPECTION_SAVE_PATH="C:/downloads/inspection"
 作業フォルダ（名前は自由）/
 ├── .env                          (設定ファイル：IDやパスワードを記入)
 └── app/                          (名前は自由：ここにEXEをまとめる)
-    └── download_inspection_report.exe
+    ├── download_inspection_report.exe
+    └── Daikin_SDS_Downloader.exe
 ```
 
 ---
@@ -65,10 +72,18 @@ DAIKIN_INSPECTION_SAVE_PATH="C:/downloads/inspection"
 プロジェクト全体の目録は **[SPECIFICATION.md (Index)](./SPECIFICATION.md)** にまとめられています。
 
 ### 🛠 自動化ツール (Apps)
-- **[Daikin Inspection Report](./apps/report_downloaders/daikin_downloader/src/inspection_report/SPECIFICATION.md)**: 検査成績書の自動取得・解凍・整理。
+- **[Daikin Inspection Report](./apps/report_downloaders/daikin_downloader/src/inspection_report/SPECIFICATION.md)**
+  - 概要：検査成績書の自動取得・解凍・整理。
+  - 💾 **[EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/daikin-build-2026-02-27)**
+
+- **[Daikin SDS Downloader](./apps/report_downloaders/daikin_downloader/src/sds/SPECIFICATION.md)**
+  - 概要：最新のSDS（PDF）をサイト上の日付を解析して自動取得。
+  - 💾 **[EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/daikin-sds-build-2026-03-04)**
 
 ### 📦 共通部品 (Common Utilities)
-- **[Desknets Login Module](./common_utils/desknets/SPECIFICATION.md)**: デスクネッツ認証とメール更新を担う共有部品。
+- **[Desknets Login Module](./common_utils/desknets/SPECIFICATION.md)**
+  - 役割：デスクネッツ認証とメール更新を担う共有部品。
+  - 💾 **[EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/desknets-login-build-2026-02-27)**
 
 ---
 

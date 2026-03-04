@@ -34,7 +34,7 @@
 ### 1. セットアップ
 プロジェクトルートにある `.env` ファイルに、以下のログイン情報を設定してください。
 ```text
-DESKNETS_LOGIN_URL="https://..."
+DESKNETS_LOGIN_URL="https://www.example.com/login"
 DESKNETS_ORG_ID="12345"
 DESKNETS_NAME_VALUE="1234"
 DESKNETS_PASSWORD="password"

@@ -23,8 +23,8 @@
 ### 1. セットアップ
 プロジェクトルートにある `.env` ファイルに、以下の項目を設定してください。
 ```text
-DAIKIN_INSPECTION_LOGIN_URL="https://..."
-DAIKIN_INSPECTION_SAVE_PATH="C:/path/to/save"
+DAIKIN_INSPECTION_LOGIN_URL="https://www.example.com/login"
+DAIKIN_INSPECTION_SAVE_PATH="C:/downloads/inspection"
 ```
 
 ### 2. 実行
