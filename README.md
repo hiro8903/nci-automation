@@ -88,9 +88,10 @@ pyinstaller --onefile --paths . --name Daikin_SDS_Downloader apps/report_downloa
   - 概要：検査成績書の自動取得・解凍・整理。
   - 💾 [EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/daikin-build-2026-02-27)
 
-- **[Daikin SDS Downloader (SDS自動取得ツール)](./apps/report_downloaders/daikin_downloader/src/sds/SPECIFICATION.md)**
-  - 概要：最新のSDSをサイト上の日付を解析して自動取得。
-  - 💾 [EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/daikin-sds-build-2026-03-04)
+- **[Daikin SDS Downloader Group (SDS取得ツール群)](./apps/report_downloaders/daikin_downloader/src/sds/SPECIFICATION.md)**
+  - 概要：最新のSDSを動的に取得する「Downloader」と、対象品番を調査する「Model Extractor」のセット。
+  - 💾 [EXE ダウンロード (Downloader)](https://github.com/hiro8903/nci-automation/releases/tag/daikin-sds-build-2026-03-04)
+  - 💾 [EXE ダウンロード (Model Extractor)](https://github.com/hiro8903/nci-automation/releases) (※最新の Actions 成果物を参照)
 
 ### 📦 共通部品 (Common Utilities)
 - **[Desknets Login Module (デスクネッツ共通認証)](./common_utils/desknets/SPECIFICATION.md)**
