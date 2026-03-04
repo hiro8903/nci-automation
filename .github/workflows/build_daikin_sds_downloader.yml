@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'apps/report_downloaders/daikin_downloader/src/sds/download_sds.py'
+      - 'apps/report_downloaders/daikin_downloader/src/sds/**'
       - 'requirements.txt'
 
 jobs:
