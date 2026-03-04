@@ -1,6 +1,6 @@
-# 🤖 CI Automation Tools (nci-automation)
+# 🤖 NCI Automation Tools
 
-本プロジェクトは、業務におけるルーチンワーク（ダウンロード、ログイン、レポート収集等）を Python と Selenium で自動化するためのツール群です。
+本プロジェクトは、業務におけるルーチンワーク（ダウンロード、ログイン、レポート収集等）を Python (Selenium, Requests 等) で自動化するためのツール群です。
 
 ---
 
@@ -18,7 +18,7 @@ pip install -r requirements.txt
 以下の「全項目コピペ用テンプレート」をコピーして `.env` ファイルを作成し、必要な値を記入してください。
 
 > [!IMPORTANT]
-> 値を記入する際は、ダブルクォーテーション `"` で囲むようにしてください。
+> 値を記入する際は、原則としてダブルクォーテーション `"` で囲むことを推奨しますが、**保存先フォルダパスなどの一部の項目では不要です。**
 
 #### 📋 .env 用コピペ・テンプレート
 ```text
@@ -30,13 +30,13 @@ DESKNETS_PASSWORD="password"
 
 # --- 検査成績書設定 (daikin_inspection_report) ---
 DAIKIN_INSPECTION_LOGIN_URL="https://www.example.com/login"
-DAIKIN_INSPECTION_SAVE_PATH="C:/downloads/inspection"
+DAIKIN_INSPECTION_SAVE_PATH=C:/downloads/inspection
 
 # --- SDS設定 (daikin_sds_downloader) ---
 DAIKIN_SDS_TARGET_URL="https://www.example.com/library/sds/"
 DAIKIN_SDS_BASE_URL="https://www.example.com"
 DAIKIN_SDS_MODEL_LIST="MODEL-A,MODEL-B"
-DAIKIN_SDS_SAVE_ROOT_DIR="C:/downloads/sds"
+DAIKIN_SDS_SAVE_ROOT_DIR=C:/downloads/sds
 ```
 
 ### 3. 実行方法
@@ -72,11 +72,11 @@ DAIKIN_SDS_SAVE_ROOT_DIR="C:/downloads/sds"
 プロジェクト全体の目録は **[SPECIFICATION.md (Index)](./SPECIFICATION.md)** にまとめられています。
 
 ### 🛠 自動化ツール (Apps)
-- **[Daikin Inspection Report](./apps/report_downloaders/daikin_downloader/src/inspection_report/SPECIFICATION.md)**
+- **[Daikin Inspection Report (検査成績書取得ツール)](./apps/report_downloaders/daikin_downloader/src/inspection_report/SPECIFICATION.md)**
   - 概要：検査成績書の自動取得・解凍・整理。
   - 💾 **[EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/daikin-build-2026-02-27)**
 
-- **[Daikin SDS Downloader](./apps/report_downloaders/daikin_downloader/src/sds/SPECIFICATION.md)**
+- **[Daikin SDS Downloader (SDS自動取得ツール)](./apps/report_downloaders/daikin_downloader/src/sds/SPECIFICATION.md)**
   - 概要：最新のSDS（PDF）をサイト上の日付を解析して自動取得。
   - 💾 **[EXE ダウンロード](https://github.com/hiro8903/nci-automation/releases/tag/daikin-sds-build-2026-03-04)**
 
