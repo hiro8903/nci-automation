@@ -22,7 +22,15 @@
 
 ### 1. セットアップ
 プロジェクトルートにある `.env` ファイルに、以下の項目を設定してください。
+
 ```text
+# --- デスクネッツ認証共通 ---
+DESKNETS_LOGIN_URL="https://www.example.com/login"
+DESKNETS_ORG_ID="1234"
+DESKNETS_NAME_VALUE="1234"
+DESKNETS_PASSWORD="password"
+
+# --- 検査成績書設定 ---
 DAIKIN_INSPECTION_LOGIN_URL="https://www.example.com/login"
 DAIKIN_INSPECTION_SAVE_PATH=C:/downloads/inspection
 ```
