@@ -55,7 +55,7 @@
 DAIKIN_SDS_TARGET_URL="https://www.example.com/library/sds/"
 DAIKIN_SDS_BASE_URL="https://www.example.com"
 DAIKIN_SDS_MODEL_LIST="MODEL-A,MODEL-B"
-DAIKIN_SDS_SAVE_ROOT_DIR="C:/path/to/save"
+DAIKIN_SDS_SAVE_ROOT_DIR=C:/path/to/save
 ```
 
 ### 2. 実行
